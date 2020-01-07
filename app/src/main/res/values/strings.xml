@@ -2,5 +2,7 @@
     <string name="app_name">Minter Info App</string>
     <string name="yes">Да</string>
     <string name="cancel">Отмена</string>
-    <string name="please_wait">Пожалуйста, подождите...</string>
+    <string name="please_wait">Пожалуйста, подождите…</string>
+    <string name="enter_wallet_address">Введите адрес кошелька…</string>
+    <string name="enter">Войти</string>
 </resources>
