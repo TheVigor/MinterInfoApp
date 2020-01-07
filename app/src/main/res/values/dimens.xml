@@ -10,4 +10,10 @@
     <dimen name="spacing_200">200dp</dimen>
     <dimen name="spacing_75">75dp</dimen>
     <dimen name="bottom_navigation_height">56dp</dimen>
+    <dimen name="spacing_15">15dp</dimen>
+    <dimen name="spacing_10">10dp</dimen>
+    <dimen name="spacing_20">20dp</dimen>
+    <dimen name="spacing_18">18dp</dimen>
+    <dimen name="spacing_70">70dp</dimen>
+    <dimen name="spacing_35">35dp</dimen>
 </resources>

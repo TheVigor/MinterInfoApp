@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.minter.info.app.core.data.remote.MinterExplorerApi
 import com.minter.info.app.features.login.LoginRepository
+import com.minter.info.app.features.main.validators.ValidatorsRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -24,6 +25,10 @@ fun remoteModule() = module {
 
     single {
         LoginRepository(get())
+    }
+
+    single {
+        ValidatorsRepository(get())
     }
 }
 

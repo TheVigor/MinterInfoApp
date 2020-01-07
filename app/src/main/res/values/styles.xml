@@ -46,6 +46,20 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="SeparatorView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorGray</item>
+    </style>
+
+    <style name="MainToolbarTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 
 
 </resources>
