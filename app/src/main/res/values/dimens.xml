@@ -17,4 +17,5 @@
     <dimen name="spacing_70">70dp</dimen>
     <dimen name="spacing_35">35dp</dimen>
     <dimen name="text_size_16">16sp</dimen>
+    <dimen name="spacing_55">55dp</dimen>
 </resources>

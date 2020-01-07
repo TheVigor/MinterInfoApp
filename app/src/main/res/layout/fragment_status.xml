@@ -32,6 +32,19 @@
 
                 android:text="@string/status"/>
 
+            <ImageView
+                android:id="@+id/ivLogout"
+                style="@style/ToolbarIcon"
+
+                android:layout_width="@dimen/spacing_55"
+                android:layout_height="@dimen/spacing_55"
+
+                android:src="@drawable/ic_logout"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 

@@ -21,4 +21,6 @@
     <string name="last_block">Last Block</string>
     <string name="s">s</string>
     <string name="transactions">transactions</string>
+    <string name="change_wallet_address">Смена адреса кошелька</string>
+    <string name="are_you_sure_to_change_wallet_address">Вы уверены, что хотите сменить адрес кошелька?</string>
 </resources>

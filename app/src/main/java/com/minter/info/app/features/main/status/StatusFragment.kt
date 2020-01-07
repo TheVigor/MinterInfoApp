@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.minter.info.app.R
+import com.minter.info.app.core.base.BaseActivity
 import com.minter.info.app.core.base.Result
 import com.minter.info.app.core.data.remote.models.status.StatusInfo
+import com.minter.info.app.core.extentions.activities.logout
+import com.minter.info.app.core.extentions.activities.showQuestionAlertDialog
 import com.minter.info.app.core.extentions.gone
 import com.minter.info.app.core.extentions.round
 import com.minter.info.app.core.extentions.showToast
@@ -39,8 +42,23 @@ class StatusFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initToolbar()
         initViewModel()
+        
         statusViewModel.getStatusInfo()
+    }
+
+    private fun initToolbar() {
+        ivLogout.setOnClickListener {
+            requireActivity().showQuestionAlertDialog(
+                title = getString(R.string.change_wallet_address),
+                message = getString(R.string.are_you_sure_to_change_wallet_address),
+                positiveAction = { _, _ ->
+                    (requireActivity() as BaseActivity).walletAddressRepository.walletAddress = ""
+                    requireActivity().logout()
+                }
+            )
+        }
     }
 
     private fun initViewModel() {
