@@ -3,6 +3,8 @@
     <string name="yes">Да</string>
     <string name="cancel">Отмена</string>
     <string name="please_wait">Пожалуйста, подождите…</string>
-    <string name="enter_wallet_address">Введите адрес кошелька…</string>
+    <string name="enter_wallet_address">Введите адрес кошелька</string>
     <string name="enter">Войти</string>
+    <string name="invalid_wallet_address">Невалидный адрес кошелька</string>
+    <string name="error_check_inet_connection">Ошибка, проверьте интернет соединение</string>
 </resources>
