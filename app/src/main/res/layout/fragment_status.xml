@@ -1,14 +1,343 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.main.status.StatusFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="?actionBarSize"
 
-</FrameLayout>
+        app:contentInsetStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/MainToolbarTitle"
+
+                android:layout_marginStart="@dimen/spacing_15"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:text="@string/status"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:id="@+id/firstSeparator"
+        style="@style/SeparatorView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstSeparator"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvMarketCap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:cardCornerRadius="@dimen/spacing_10"
+                app:strokeColor="@color/colorAccent"
+                app:strokeWidth="1dp"
+
+
+                android:layout_marginTop="@dimen/spacing_20"
+                android:layout_marginStart="@dimen/spacing_20"
+                android:layout_marginEnd="@dimen/spacing_20"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@color/colorBackground">
+
+                    <ImageView
+                        android:id="@+id/ivCoins"
+                        android:layout_width="@dimen/spacing_30"
+                        android:layout_height="@dimen/spacing_30"
+                        android:src="@drawable/ic_market_cap"
+
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_marginTop="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvMarketCapLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/market_cap"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/text_size_16"
+
+                        android:layout_marginStart="@dimen/spacing_20"
+
+                        app:layout_constraintStart_toEndOf="@id/ivCoins"
+                        app:layout_constraintTop_toTopOf="@id/ivCoins"
+                        app:layout_constraintBottom_toBottomOf="@id/ivCoins" />
+
+                    <TextView
+                        android:id="@+id/tvMarketCap"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/raleway_regular"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/text_size_20"
+                        android:textColor="@color/colorTextPrimary"
+
+                        android:layout_marginTop="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="@id/tvMarketCapLabel"
+                        app:layout_constraintTop_toBottomOf="@id/tvMarketCapLabel" />
+
+                    <TextView
+                        android:id="@+id/tvUsdPrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/raleway_regular"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/text_size_20"
+                        android:textColor="@color/colorTextPrimary"
+
+                        android:layout_marginTop="@dimen/spacing_10"
+                        android:layout_marginBottom="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="@id/tvMarketCap"
+                        app:layout_constraintTop_toBottomOf="@id/tvMarketCap"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvLastBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:cardCornerRadius="@dimen/spacing_10"
+                app:strokeColor="@color/colorAccent"
+                app:strokeWidth="1dp"
+
+
+                android:layout_marginTop="@dimen/spacing_20"
+                android:layout_marginStart="@dimen/spacing_20"
+                android:layout_marginEnd="@dimen/spacing_20"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvMarketCap">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@color/colorBackground">
+
+                    <ImageView
+                        android:id="@+id/ivBlocks"
+                        android:layout_width="@dimen/spacing_30"
+                        android:layout_height="@dimen/spacing_30"
+                        android:src="@drawable/ic_blocks"
+
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_marginTop="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvLastBlockLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/last_block"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/text_size_16"
+
+                        android:layout_marginStart="@dimen/spacing_20"
+
+                        app:layout_constraintStart_toEndOf="@id/ivBlocks"
+                        app:layout_constraintTop_toTopOf="@id/ivBlocks"
+                        app:layout_constraintBottom_toBottomOf="@id/ivBlocks" />
+
+                    <TextView
+                        android:id="@+id/tvLastBlockHeight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/raleway_regular"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/text_size_20"
+                        android:textColor="@color/colorTextPrimary"
+
+                        android:layout_marginTop="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="@id/tvLastBlockLabel"
+                        app:layout_constraintTop_toBottomOf="@id/tvLastBlockLabel" />
+
+                    <TextView
+                        android:id="@+id/tvBlockTime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/raleway_regular"
+                        android:textSize="@dimen/text_size_20"
+                        android:textColor="@color/colorTextPrimary"
+
+                        android:layout_marginTop="@dimen/spacing_10"
+                        android:layout_marginBottom="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="@id/tvLastBlockHeight"
+                        app:layout_constraintTop_toBottomOf="@id/tvLastBlockHeight"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:cardCornerRadius="@dimen/spacing_10"
+                app:strokeColor="@color/colorAccent"
+                app:strokeWidth="1dp"
+
+                android:layout_marginTop="@dimen/spacing_20"
+                android:layout_marginStart="@dimen/spacing_20"
+                android:layout_marginEnd="@dimen/spacing_20"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvLastBlock">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@color/colorBackground">
+
+                    <ImageView
+                        android:id="@+id/ivTransactions"
+                        android:layout_width="@dimen/spacing_30"
+                        android:layout_height="@dimen/spacing_30"
+                        android:src="@drawable/ic_transactions"
+
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_marginTop="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvTransactionLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/transactions"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/text_size_16"
+
+                        android:layout_marginStart="@dimen/spacing_20"
+
+                        app:layout_constraintStart_toEndOf="@id/ivTransactions"
+                        app:layout_constraintTop_toTopOf="@id/ivTransactions"
+                        app:layout_constraintBottom_toBottomOf="@id/ivTransactions" />
+
+                    <TextView
+                        android:id="@+id/tvTotalTransactions"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/raleway_regular"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/text_size_20"
+                        android:textColor="@color/colorTextPrimary"
+
+                        android:layout_marginTop="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="@id/tvTransactionLabel"
+                        app:layout_constraintTop_toBottomOf="@id/tvTransactionLabel" />
+
+                    <TextView
+                        android:id="@+id/tvTransactionPerSecond"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/raleway_regular"
+                        android:textSize="@dimen/text_size_20"
+                        android:textColor="@color/colorTextPrimary"
+
+                        android:layout_marginTop="@dimen/spacing_10"
+                        android:layout_marginBottom="@dimen/spacing_10"
+
+                        app:layout_constraintStart_toStartOf="@id/tvTotalTransactions"
+                        app:layout_constraintTop_toBottomOf="@id/tvTotalTransactions"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_30"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvTransactions"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+
+        android:layout_width="@dimen/spacing_50"
+        android:layout_height="@dimen/spacing_50"
+
+        android:visibility="gone"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/firstSeparator"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

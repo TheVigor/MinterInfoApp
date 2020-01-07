@@ -1,5 +1,6 @@
 package com.minter.info.app.core.data.remote
 
+import com.minter.info.app.core.data.remote.models.status.StatusInfoResponse
 import com.minter.info.app.core.data.remote.models.validators.ValidatorsResponse
 import com.minter.info.app.core.data.remote.models.wallet.WalletAddressInfoResponse
 import retrofit2.Response
@@ -14,4 +15,7 @@ interface MinterExplorerApi {
 
     @GET("/api/v1/validators")
     suspend fun getValidators(): Response<ValidatorsResponse>
+
+    @GET("/api/v1/status")
+    suspend fun getStatusInfo(): Response<StatusInfoResponse>
 }

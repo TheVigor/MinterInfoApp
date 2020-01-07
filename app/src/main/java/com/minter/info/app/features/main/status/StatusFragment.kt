@@ -1,7 +1,5 @@
 package com.minter.info.app.features.main.status
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.minter.info.app.R
+import com.minter.info.app.core.base.Result
+import com.minter.info.app.core.data.remote.models.status.StatusInfo
+import com.minter.info.app.core.extentions.gone
+import com.minter.info.app.core.extentions.round
+import com.minter.info.app.core.extentions.showToast
+import com.minter.info.app.core.extentions.visible
+import kotlinx.android.synthetic.main.fragment_status.*
+import kotlinx.android.synthetic.main.fragment_validators.*
+import kotlinx.android.synthetic.main.fragment_validators.pbLoading
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class StatusFragment : Fragment() {
@@ -18,6 +26,8 @@ class StatusFragment : Fragment() {
         fun newInstance() = StatusFragment()
     }
 
+    private val statusViewModel: StatusViewModel by viewModel()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,4 +36,50 @@ class StatusFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_status, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initViewModel()
+        statusViewModel.getStatusInfo()
+    }
+
+    private fun initViewModel() {
+        statusViewModel.init(viewLifecycleOwner,
+            loading = {
+                if (it) {
+                    nsv.gone()
+                    pbLoading.visible()
+                } else {
+                    pbLoading.gone()
+                    nsv.visible()
+                }
+            },
+            error = {
+                requireActivity().showToast(getString(R.string.error_check_inet_connection))
+            },
+            result = {
+                when (it) {
+                    is Result.Success -> updateStatusInfo(it.data)
+                    is Result.Error -> handleError(it)
+                }
+            })
+    }
+
+
+    private fun handleError(it: Result.Error<String>) {
+        requireActivity().showToast(it.error)
+    }
+
+    private fun updateStatusInfo(statusInfo: StatusInfo) {
+        requireActivity().showToast(statusInfo.toString())
+
+        tvMarketCap.text = "$ ${(statusInfo.marketCap / 1000000).round()} M"
+        tvUsdPrice.text = "$ ${statusInfo.bipPriceUsd} ${getString(R.string.per_bip)}"
+
+        tvLastBlockHeight.text = statusInfo.latestBlockHeight.toString()
+        tvBlockTime.text = "${statusInfo.averageBlockTime.round()}${getString(R.string.s)}"
+
+        tvTotalTransactions.text = statusInfo.totalTransactions.toString()
+        tvTransactionPerSecond.text = "${statusInfo.transactionsPerSecond.round()} TPS"
+    }
 }
