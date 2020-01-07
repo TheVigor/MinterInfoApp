@@ -9,4 +9,5 @@
     <dimen name="spacing_30">30dp</dimen>
     <dimen name="spacing_200">200dp</dimen>
     <dimen name="spacing_75">75dp</dimen>
+    <dimen name="bottom_navigation_height">56dp</dimen>
 </resources>

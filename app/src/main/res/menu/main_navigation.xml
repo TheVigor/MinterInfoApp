@@ -1,0 +1,23 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_wallet"
+        android:title="@string/wallet"
+        android:icon="@drawable/ic_wallet"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/item_validators"
+        android:title="@string/validators"
+        android:icon="@drawable/ic_validators"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/item_status"
+        android:title="@string/status"
+        android:icon="@drawable/ic_status"
+        app:showAsAction="ifRoom"/>
+
+</menu>
