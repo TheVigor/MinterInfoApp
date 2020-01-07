@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Minter Info App</string>
+    <string name="yes">Да</string>
+    <string name="cancel">Отмена</string>
+    <string name="please_wait">Пожалуйста, подождите...</string>
 </resources>
