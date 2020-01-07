@@ -16,6 +16,8 @@ fun Activity.provideProgressDialog(): AlertDialog =
 fun Activity.showQuestionAlertDialog(
     title: String,
     message: String,
+    positiveMessageId: Int = R.string.yes,
+    negativeMessageId: Int = R.string.cancel,
     positiveAction: (DialogInterface, Int) -> Unit,
     negativeAction: (DialogInterface, Int) -> Unit = { _, _ -> }) {
     val builder = AlertDialog.Builder(this)
@@ -23,8 +25,8 @@ fun Activity.showQuestionAlertDialog(
     with(builder) {
         setTitle(title)
         setMessage(message)
-        setPositiveButton(getString(R.string.yes), positiveAction)
-        setNegativeButton(getString(R.string.cancel), negativeAction)
+        setPositiveButton(getString(positiveMessageId), positiveAction)
+        setNegativeButton(getString(negativeMessageId), negativeAction)
         show()
     }
 }

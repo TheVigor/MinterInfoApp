@@ -10,12 +10,9 @@ import com.minter.info.app.R
 import com.minter.info.app.core.base.BaseActivity
 import com.minter.info.app.core.base.Result
 import com.minter.info.app.core.data.remote.models.status.StatusInfo
+import com.minter.info.app.core.extentions.*
 import com.minter.info.app.core.extentions.activities.logout
 import com.minter.info.app.core.extentions.activities.showQuestionAlertDialog
-import com.minter.info.app.core.extentions.gone
-import com.minter.info.app.core.extentions.round
-import com.minter.info.app.core.extentions.showToast
-import com.minter.info.app.core.extentions.visible
 import kotlinx.android.synthetic.main.fragment_status.*
 import kotlinx.android.synthetic.main.fragment_validators.*
 import kotlinx.android.synthetic.main.fragment_validators.pbLoading
@@ -49,6 +46,18 @@ class StatusFragment : Fragment() {
     }
 
     private fun initToolbar() {
+        ivDonate.setOnClickListener {
+            requireActivity().showQuestionAlertDialog(
+                title = getString(R.string.donation),
+                message = getString(R.string.donate_message),
+                positiveMessageId = R.string.copy,
+                positiveAction = { _, _ ->
+                    requireActivity().copyToClipboard()
+                }
+            )
+        }
+
+
         ivLogout.setOnClickListener {
             requireActivity().showQuestionAlertDialog(
                 title = getString(R.string.change_wallet_address),
