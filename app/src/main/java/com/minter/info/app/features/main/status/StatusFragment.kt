@@ -44,7 +44,7 @@ class StatusFragment : Fragment() {
 
         initToolbar()
         initViewModel()
-        
+
         statusViewModel.getStatusInfo()
     }
 

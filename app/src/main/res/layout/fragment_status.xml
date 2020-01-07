@@ -142,7 +142,6 @@
                         android:layout_height="wrap_content"
 
                         android:fontFamily="@font/raleway_regular"
-                        android:textAllCaps="true"
                         android:textSize="@dimen/text_size_20"
                         android:textColor="@color/colorTextPrimary"
 
