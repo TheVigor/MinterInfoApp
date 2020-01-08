@@ -98,10 +98,8 @@ class StatusFragment : Fragment() {
     }
 
     private fun updateStatusInfo(statusInfo: StatusInfo) {
-        requireActivity().showToast(statusInfo.toString())
-
         tvMarketCap.text = "$ ${(statusInfo.marketCap / 1000000).round()} M"
-        tvUsdPrice.text = "$ ${statusInfo.bipPriceUsd} ${getString(R.string.per_bip)}"
+        tvUsdPrice.text = "$ ${statusInfo.bipPriceUsd}"
 
         tvLastBlockHeight.text = statusInfo.latestBlockHeight.toString()
         tvBlockTime.text = "${statusInfo.averageBlockTime.round()}${getString(R.string.s)}"

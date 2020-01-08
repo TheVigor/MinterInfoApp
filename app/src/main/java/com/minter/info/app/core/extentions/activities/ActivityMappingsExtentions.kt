@@ -8,7 +8,7 @@ import com.minter.info.app.features.main.validators.ValidatorItem
 fun Activity.mapToValidatorItems(validators: List<Validator>): List<ValidatorItem> {
     return validators.map {
         ValidatorItem(it) { validator ->
-            showToast(validator.meta.name ?: "XXX")
+            goToValidatorDetail(validator)
         }
     }
 }

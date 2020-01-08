@@ -18,13 +18,14 @@ fun Context.showToast(text: String, duration: Int = Toast.LENGTH_LONG) {
 inline fun <reified T : Activity> Context.open() =
     startActivity(Intent(this, T::class.java))
 
-fun Context.getDrawableCompat(@DrawableRes drawable: Int) = ContextCompat.getDrawable(this, drawable)
-fun Context.getColorCompat(@ColorRes color: Int) = ContextCompat.getColor(this, color)
 
-fun Context.copyToClipboard(text: CharSequence = "Mx69ed0a8c95b77d63a442c48f419b5f01aad26006"){
+fun Context.copyToClipboard(
+    text: CharSequence = "Mx69ed0a8c95b77d63a442c48f419b5f01aad26006",
+    messageId: Int = R.string.address_copied){
+
     val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText("text", text)
     clipboard.setPrimaryClip(clip)
 
-    showToast(getString(R.string.address_copied))
+    showToast(getString(messageId))
 }

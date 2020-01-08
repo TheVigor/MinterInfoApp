@@ -56,7 +56,7 @@ class ValidatorsFragment : Fragment() {
             },
             result = {
                 when (it) {
-                    is Result.Success -> updateValidators(it.data)
+                    is Result.Success -> updateValidators(it.data.sortedBy { va -> va.part }.reversed())
                     is Result.Error -> handleError(it)
                 }
             })

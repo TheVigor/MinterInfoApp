@@ -1,8 +1,10 @@
 package com.minter.info.app.core.data.remote.models.validators
 
-import android.accounts.AuthenticatorDescription
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ValidatorMeta(
     @SerializedName("name")
     val name: String?,
@@ -15,4 +17,4 @@ data class ValidatorMeta(
 
     @SerializedName("site_url")
     val siteUrl: String?
-)
+) : Parcelable

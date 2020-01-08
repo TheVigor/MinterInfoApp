@@ -15,8 +15,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".features.main.validators.detail.ValidatorDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".features.login.LoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
