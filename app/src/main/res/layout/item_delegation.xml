@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="?android:attr/selectableItemBackground"
+    android:id="@+id/clRoot"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvDelegationCoin"
+
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/text_size_20"
+        android:fontFamily="@font/raleway_regular"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/spacing_18"
+        android:layout_marginTop="@dimen/spacing_20"
+
+        android:text="BIP"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvDelegationAmount"/>
+
+    <TextView
+        android:id="@+id/tvValidator"
+
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_size_15"
+        android:fontFamily="@font/raleway_regular"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/spacing_18"
+        android:layout_marginTop="@dimen/spacing_5"
+
+        android:text="Mother Minter"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDelegationCoin"
+        app:layout_constraintEnd_toStartOf="@id/tvDelegationAmount"/>
+
+    <TextView
+        android:id="@+id/tvDelegationAmount"
+
+        android:textColor="@color/colorTextSecondary"
+        android:textSize="@dimen/text_size_15"
+        android:fontFamily="@font/raleway_regular"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/spacing_18"
+        android:layout_marginEnd="@dimen/spacing_18"
+
+        android:text="1 345 284"
+
+        app:layout_constraintTop_toTopOf="@id/tvDelegationCoin"
+        app:layout_constraintBottom_toBottomOf="@id/tvDelegationCoin"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <View
+        style="@style/SeparatorView"
+
+        android:layout_marginTop="@dimen/spacing_20"
+        android:layout_marginStart="@dimen/spacing_18"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvValidator"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

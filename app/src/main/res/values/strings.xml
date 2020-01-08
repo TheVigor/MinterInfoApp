@@ -28,4 +28,7 @@
     <string name="donate_message">Данное приложение разрабатывается энтузиастами в свободное время. Вы можете поддержать разработчиков, отправив пожертвование на данный BIP кошелек: \nMx69ed0a8c95b77d63a442c48f419b5f01aad26006</string>
     <string name="address_copied">Адрес скопирован</string>
     <string name="site_copied">Сайт скопирован</string>
+    <string name="error_receiving_wallet_info">Ошибка получения информации о кошельке</string>
+    <string name="my_coins">Мои монеты</string>
+    <string name="delegated_stakes">Делегированные стейки</string>
 </resources>
